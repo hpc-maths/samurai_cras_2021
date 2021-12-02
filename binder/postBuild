@@ -24,4 +24,9 @@ pushd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make
 
+mv D1Q3_case D2Q9_case ..
 popd
+
+rm -r build
+mkdir D1Q3_jump_compte_rendus
+mkdir D2Q9_jump_compte_rendus

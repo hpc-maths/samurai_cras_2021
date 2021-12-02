@@ -846,13 +846,13 @@ int main(int argc, char *argv[])
 
         t += dt;
 
-        // if (ite == static_cast<std::size_t>((1<<max_level)/10.))
-            // save_solution_cut(f_fields_ref, f_fields_jump, t, lambda/(std::sqrt(3.)), "begin");
+        if (ite == static_cast<std::size_t>((1<<max_level)/10.))
+            save_solution_cut(f_fields_ref, f_fields_jump, t, lambda/(std::sqrt(3.)), "begin");
     }
 
     std::cout<<std::endl;
 
-    // save_solution_cut(f_fields_ref, f_fields_jump, t, lambda/(std::sqrt(3.)), "final");
+    save_solution_cut(f_fields_ref, f_fields_jump, t, lambda/(std::sqrt(3.)), "final");
 
     auto errors = compute_errors(f_fields_ref, f_fields_coarse, f_fields_jump, t, lambda/(std::sqrt(3.)), update_bc_for_level);
 

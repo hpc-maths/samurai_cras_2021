@@ -448,14 +448,12 @@ void one_time_step(Field & f, Func && update_bc_for_level, const PredCoeff & pre
 }
 
 template<class Field>
-void save_solution(const Field & f, const double t, const double c, const std::size_t ite, const std::string ext = "")
+void save_solution(const Field & f, const double t, const double c, const std::size_t ite, const std::string ext = "MR")
 {
     auto mesh = f.mesh();
     using mesh_id_t = typename decltype(mesh)::mesh_id_t;
 
-
-    std::stringstream str;
-    str << "LBM_D1Q3_mesh_jump_compte_rendus_"<<ext<<"_ite-" << ite;
+    auto filename = fmt::format("./D1Q3_jump_compte_rendus/{}_ite-{}", ext, ite);
 
     auto u = samurai::make_field<double, 1>("u", mesh);
     auto u_ex = samurai::make_field<double, 1>("u_ex", mesh);
@@ -468,7 +466,7 @@ void save_solution(const Field & f, const double t, const double c, const std::s
         u_ex[cell] = sol_u(t, x, c);
     });
 
-    samurai::save(str.str().data(), mesh, u, u_ex);
+    samurai::save(filename, mesh, u, u_ex);
 }
 
 
@@ -479,8 +477,7 @@ int main(int argc, char *argv[])
 
     options.add_options()
                         ("level_diff", "level difference", cxxopts::value<std::size_t>()->default_value("3"))
-                        ("max_level", "maximum level", cxxopts::value<std::size_t>()->default_value("9"))
-                        ("log", "log level", cxxopts::value<std::string>()->default_value("warning"))
+                        ("max_level", "maximum level", cxxopts::value<std::size_t>()->default_value("10"))
                         ("h, help", "Help");
 
     try
@@ -537,8 +534,8 @@ int main(int argc, char *argv[])
             for (std::size_t it = 0; it < N_ite; ++it) {
                 std::cout<<"Iteration = "<<it<<std::endl;
 
-                // save_solution(f_jump, t   , c, it);
-                // save_solution(f_jump_lw, t, c, it, std::string("LW"));
+                save_solution(f_jump, t   , c, it);
+                save_solution(f_jump_lw, t, c, it, std::string("LW"));
                 save_solution(f_jump_Rohde, t, c, it, std::string("Rohde"));
 
                 one_time_step(f_jump   , update_bc_for_level, pred_coeff, lambda, p, c, true, false);
