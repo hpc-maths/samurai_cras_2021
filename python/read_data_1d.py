@@ -15,7 +15,7 @@ mksize = 1
 
 f, axs = plt.subplots(3, 2, sharey=False)
 
-pathname = './build/D1Q3_jump_compte_rendus'
+pathname = './D1Q3_jump_compte_rendus'
 ite2plot = 1599
 
 mesh = h5py.File(f'{pathname}/MR_ite-0.h5', 'r')['mesh']

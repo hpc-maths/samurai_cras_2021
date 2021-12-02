@@ -54,7 +54,7 @@ fig1 = plt.figure(figsize=set_size(width, 1.2))
 ax1 = plt.subplot(1, 2, 1)
 ax2 = plt.subplot(1, 2, 2)
 
-pathname = './build/D2Q9_jump_compte_rendus'
+pathname = './D2Q9_jump_compte_rendus'
 x_reference_begin  = np.loadtxt(f'{pathname}/x_reference_begin.dat')
 y_reference_begin  = np.loadtxt(f'{pathname}/y_reference_begin.dat')
 y_exact_begin      = np.loadtxt(f'{pathname}/y_exact_begin.dat')
