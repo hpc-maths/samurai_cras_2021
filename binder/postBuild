@@ -1,12 +1,13 @@
 set -ex
 
 git clone https://github.com/hpc-maths/samurai.git
-git checkout -b cras_note 3062795
+
 
 echo $CONDA_PREFIX
 
-mkdir samurai/build
 pushd samurai
+git checkout -b cras_note 3062795
+mkdir build
 pushd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX
 make install
