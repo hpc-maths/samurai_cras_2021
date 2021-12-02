@@ -1,0 +1,5 @@
+add_executable(D1Q3_case D1Q3_mesh_jump_compte_rendus_comparison.cpp)
+target_link_libraries(D1Q3_case samurai)
+
+add_executable(D2Q9_case D2Q9_mesh_jump_compte_rendus.cpp)
+target_link_libraries(D2Q9_case samurai)
