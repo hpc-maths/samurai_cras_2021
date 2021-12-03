@@ -16,7 +16,7 @@ make install
 popd
 popd
 
-rm -r samurai
+rm -rf samurai
 
 mkdir build
 pushd build
@@ -27,7 +27,7 @@ make
 mv ./src/D1Q3_case ./src/D2Q9_case ..
 popd
 
-rm -r build
+rm -rf build
 mkdir D1Q3_jump_compte_rendus
 mkdir D2Q9_jump_compte_rendus
 
