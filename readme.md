@@ -2,7 +2,7 @@ This repository contains all the material needed to reproduce the numerical simu
 
 These simulations are perform using [samurai](https://github.com/hpc-maths/samurai): an open source software written in C++ which provides a new data structure based on intervals and algebra of sets to handle efficiently adaptive mesh refinement methods based on a cartesian grid.
 
-You can reproduce the figures by clicking on the binder logo just below which will opens a jupyter notebook.
+You can reproduce the figures by clicking on the binder logo just below which will open a jupyter notebook.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hpc-maths/samurai_cras_2021/HEAD?labpath=plot_results.ipynb)
 
